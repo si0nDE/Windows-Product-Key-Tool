@@ -2,7 +2,7 @@
 
 ### Einstellungen
     $programmname    = "Windows Product Key Tool"
-    $programmversion = "v1.0"
+    $programmversion = "v1.1"
 
 ### Startbildschirm ###
     function startbildschirm {
@@ -69,7 +69,7 @@ function test_verlaengern {
             Write-Host "   ║                                                                               ║"
             Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
             Write-Host ""
-            Start-Sleep -Milliseconds 3000
+            Start-Sleep -Milliseconds 1500
             slmgr.vbs -rearm
             Write-Host ""
         
@@ -92,7 +92,7 @@ function productkey_eingeben {
                     Write-Host "   ║ Product Key wird installiert...                                               ║"
                     Write-Host "   ║                                                                               ║"
                     Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
-                    Start-Sleep -Milliseconds 3000
+                    Start-Sleep -Milliseconds 1500
                     slmgr.vbs -ipk $ProductKey
                     Write-Host ""
 }
@@ -105,7 +105,7 @@ function productkey_aktivieren {
             Write-Host "   ║                                                                               ║"
             Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
             Write-Host ""
-            Start-Sleep -Milliseconds 3000
+            Start-Sleep -Milliseconds 1500
             slmgr.vbs -ato
             Write-Host ""
 }
@@ -141,40 +141,38 @@ function lizenzinfo_abrufen {
         until ($lizenzinput -eq 'x')
 }
 
-            function lizenzinfo_einfach {
-                cls
-                startbildschirm
-                Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
-                Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
-                Write-Host "   ║                                                                               ║"
-                Write-Host "   ║ [ 1 ] einfache Informationen         ║ [ 2 ] erweiterte Informationen         ║"
-                Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
-                Write-Host "      ╔═══════════════════════════════════════════════════════════════════════════════╗"
-                Write-Host "      ║ Einfache Lizenzinformationen werden abgerufen...                              ║"
-                Write-Host "      ║                                                                               ║"
-                Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
-                Start-Sleep -Milliseconds 3000
-                slmgr.vbs -dli
-                Write-Host ""
-            }
+function lizenzinfo_einfach {
+    cls
+    startbildschirm
+    Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+    Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
+    Write-Host "   ║                                                                               ║"
+    Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
+    Write-Host "      ╔═══════════════════════════════════════════════════════════════════════════════╗"
+    Write-Host "      ║ Einfache Lizenzinformationen werden abgerufen...                              ║"
+    Write-Host "      ║                                                                               ║"
+    Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
+    Start-Sleep -Milliseconds 1500
+    slmgr.vbs -dli
+    Write-Host ""
+}
 
 
-            function lizenzinfo_erweitert {
-                cls
-                startbildschirm
-                Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
-                Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
-                Write-Host "   ║                                                                               ║"
-                Write-Host "   ║ [ 1 ] einfache Informationen         ║ [ 2 ] erweiterte Informationen         ║"
-                Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
-                Write-Host "      ╔═══════════════════════════════════════════════════════════════════════════════╗"
-                Write-Host "      ║ Erweiterte Lizenzinformationen werden abgerufen...                            ║"
-                Write-Host "      ║                                                                               ║"
-                Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
-                Start-Sleep -Milliseconds 3000
-                slmgr.vbs -dlv
-                Write-Host ""
-            }
+function lizenzinfo_erweitert {
+    cls
+    startbildschirm
+    Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+    Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
+    Write-Host "   ║                                                                               ║"
+    Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
+    Write-Host "      ╔═══════════════════════════════════════════════════════════════════════════════╗"
+    Write-Host "      ║ Erweiterte Lizenzinformationen werden abgerufen...                            ║"
+    Write-Host "      ║                                                                               ║"
+    Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
+    Start-Sleep -Milliseconds 1500
+    slmgr.vbs -dlv
+    Write-Host ""
+}
 
 ### Start ###
 startbildschirm
