@@ -2,7 +2,7 @@
 
 ### Einstellungen
     $programmname    = "Windows Product Key Tool"
-    $programmversion = "v1.1"
+    $programmversion = "v1.2"
 
 ### Startbildschirm ###
     function startbildschirm {
@@ -118,6 +118,8 @@ function lizenzinfo_abrufen {
             Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
             Write-Host "   ║                                                                               ║"
             Write-Host "   ║ [ 1 ] einfache Informationen         ║ [ 2 ] erweiterte Informationen         ║"
+            Write-Host "   ╠═══════════════════════════════════════════════════════════════════════════════╣"
+            Write-Host "   ║ [ X ] Zurück zum Hauptmenü                                                    ║"
             Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
             Write-Host ""
 
