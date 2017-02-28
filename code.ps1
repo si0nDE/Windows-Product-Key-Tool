@@ -2,12 +2,12 @@
 
 ### Einstellungen
     $programmname    = "Windows Product Key Tool"
-    $programmversion = "v1.3"
+    $programmversion = "v1.3.1"
 
 ### Startbildschirm ###
     function startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
-        Write-Host "║ $programmname $programmversion                                                 ║"
+        Write-Host "║ $programmname $programmversion                                               ║"
         Write-Host "║                                                                               ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
     }
@@ -123,9 +123,9 @@ function lizenzinfo_abrufen {
             Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
             Write-Host ""
 
-            $lizenzinput = Read-Host "Bitte wählen Sie"
+            $input = Read-Host "Bitte wählen Sie"
 
-            switch ($lizenzinput) {
+            switch ($input) {
                 '1' {
                     lizenzinfo_einfach
                 }
@@ -135,12 +135,12 @@ function lizenzinfo_abrufen {
                 }
 
                 'x' {
-                    return
+                    menueauswahl
                 }
             }
             pause
         }
-        until ($lizenzinput -eq 'x')
+        until ($input -eq 'x')
 }
 
 function lizenzinfo_einfach {
