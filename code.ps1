@@ -1,8 +1,8 @@
 ﻿cls
 
-### Einstellungen
+### Einstellungen ###
     $programmname    = "Windows Product Key Tool"
-    $programmversion = "v1.3.1"
+    $programmversion = "v1.3.2"
 
 ### Startbildschirm ###
     function startbildschirm {
@@ -23,44 +23,30 @@
         Write-Host "   ║ [ 4 ] Lizenzinformationen abrufen                                             ║"
         Write-Host "   ╠═══════════════════════════════════════════════════════════════════════════════╣"
         Write-Host "   ║ [ X ] Programm beenden                                                        ║"
+        Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
     }
 
 ### Menüauswahl ###
-    function menueauswahl {
-        do {
-            cls
-            startbildschirm
-            menue
+function menueauswahl {
+    do {
+        cls
+        startbildschirm
+        menue
             Write-Host ""
             $input = Read-Host "Bitte wählen Sie"
 
             switch ($input) {
-                '1' {
-                    test_verlaengern
-                }
-
-                '2' {
-                    productkey_eingeben
-                }
-
-                '3' {
-                    productkey_aktivieren
-                }
-
-                '4' {
-                    lizenzinfo_abrufen
-                }
-
-                'x' {
-                    return
-                }
-            }
-            pause
-        }
+                '1' {test_verlaengern}
+                '2' {productkey_eingeben}
+                '3' {productkey_aktivieren}
+                '4' {lizenzinfo_abrufen}
+                'x' {return}
+            } pause }
         until ($input -eq 'x')
-    }
+}
 
+### Testversion um 60 Tage verlängern ###
 function test_verlaengern {
         cls
         startbildschirm
@@ -72,9 +58,9 @@ function test_verlaengern {
             Start-Sleep -Milliseconds 1500
             slmgr.vbs -rearm
             Write-Host ""
-        
 }
 
+### Product Key installieren ###
 function productkey_eingeben {
         cls
         startbildschirm
@@ -82,6 +68,7 @@ function productkey_eingeben {
             Write-Host "   ║ Bitte geben Sie den gewünschten Product Key im folgenden Format ein:          ║"
             Write-Host "   ║                                                                               ║"
             Write-Host "   ║     XXXXX-XXXXX-XXXXX-XXXXX-XXXXX                                             ║"
+            Write-Host "   ║                                                                               ║"
             Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
             Write-Host ""
             $ProductKey = Read-Host "Product Key"
@@ -97,6 +84,7 @@ function productkey_eingeben {
                     Write-Host ""
 }
 
+### Product Key aktivieren ###
 function productkey_aktivieren {
         cls
         startbildschirm
@@ -110,6 +98,7 @@ function productkey_aktivieren {
             Write-Host ""
 }
 
+### Lizenzinformationen abrufen - Menü ###
 function lizenzinfo_abrufen {
         do {
         cls
@@ -118,62 +107,55 @@ function lizenzinfo_abrufen {
             Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
             Write-Host "   ║                                                                               ║"
             Write-Host "   ║ [ 1 ] einfache Informationen         ║ [ 2 ] erweiterte Informationen         ║"
-            Write-Host "   ╠═══════════════════════════════════════════════════════════════════════════════╣"
+            Write-Host "   ║                                      ║                                        ║"
+            Write-Host "   ╠══════════════════════════════════════╩════════════════════════════════════════╣"
             Write-Host "   ║ [ X ] Zurück zum Hauptmenü                                                    ║"
+            Write-Host "   ║                                                                               ║"
             Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
             Write-Host ""
 
             $input = Read-Host "Bitte wählen Sie"
 
             switch ($input) {
-                '1' {
-                    lizenzinfo_einfach
-                }
-
-                '2' {
-                    lizenzinfo_erweitert
-                }
-
-                'x' {
-                    menueauswahl
-                }
-            }
-            pause
-        }
+                '1' {lizenzinfo_einfach}
+                '2' {lizenzinfo_erweitert}
+                'x' {menueauswahl} # Zurück ins Hauptmenü #
+            } pause }
         until ($input -eq 'x')
 }
 
+### einfache Lizenzinformationen abrufen ###
 function lizenzinfo_einfach {
     cls
     startbildschirm
-    Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
-    Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
-    Write-Host "   ║                                                                               ║"
-    Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
-    Write-Host "      ╔═══════════════════════════════════════════════════════════════════════════════╗"
-    Write-Host "      ║ Einfache Lizenzinformationen werden abgerufen...                              ║"
-    Write-Host "      ║                                                                               ║"
-    Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
-    Start-Sleep -Milliseconds 1500
-    slmgr.vbs -dli
-    Write-Host ""
+        Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+        Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
+        Write-Host "   ║                                                                               ║"
+        Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
+        Write-Host "      ╔═══════════════════════════════════════════════════════════════════════════════╗"
+        Write-Host "      ║ Einfache Lizenzinformationen werden abgerufen...                              ║"
+        Write-Host "      ║                                                                               ║"
+        Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
+        Start-Sleep -Milliseconds 1500
+        slmgr.vbs -dli
+        Write-Host ""
 }
 
-
+### erweiterte Lizenzinformationen abrufen ###
 function lizenzinfo_erweitert {
     cls
     startbildschirm
-    Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
-    Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
-    Write-Host "   ║                                                                               ║"
-    Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
-    Write-Host "      ╔═══════════════════════════════════════════════════════════════════════════════╗"
-    Write-Host "      ║ Erweiterte Lizenzinformationen werden abgerufen...                            ║"
-    Write-Host "      ║                                                                               ║"
-    Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
-    Start-Sleep -Milliseconds 1500
-    slmgr.vbs -dlv
-    Write-Host ""
+        Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+        Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
+        Write-Host "   ║                                                                               ║"
+        Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
+        Write-Host "      ╔═══════════════════════════════════════════════════════════════════════════════╗"
+        Write-Host "      ║ Erweiterte Lizenzinformationen werden abgerufen...                            ║"
+        Write-Host "      ║                                                                               ║"
+        Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
+        Start-Sleep -Milliseconds 1500
+        slmgr.vbs -dlv
+        Write-Host ""
 }
 
 ### Start ###
