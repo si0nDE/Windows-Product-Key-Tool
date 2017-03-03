@@ -18,7 +18,7 @@
         Write-Host "   ║ [ 3 ] Product Key aktivieren                                                  ║"
         Write-Host "   ║ [ 4 ] Lizenzinformationen abrufen                                             ║"
         Write-Host "   ╠═══════════════════════════════════════════════════════════════════════════════╣"
-#        Write-Host "   ║ [ 0 ] Windows Server Tools starten                                            ║"
+        Write-Host "   ║ [ 0 ] Windows Server Tools starten                                            ║"
         Write-Host "   ║ [ X ] Programm beenden                                                        ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
