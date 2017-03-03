@@ -3,12 +3,12 @@
 ### Startbildschirm ###
 function startbildschirm {
     Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
-    Write-Host "║ Windows Product Key Tool                                                      ║"
+    Write-Host "║ Windows Product Key Tool v1.3.3                                               ║"
     Write-Host "║                                                                               ║"
     Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
 
-### Root ermitteln, zum öffnen des Programmcodes ###
+### Root-Verzeichnis ermitteln, zum öffnen des Programmcodes ###
 function Get-ScriptDirectory {
     $Invocation = (Get-Variable MyInvocation -Scope 1).Value
     Split-Path $Invocation.MyCommand.Path

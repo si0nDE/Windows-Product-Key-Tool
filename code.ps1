@@ -1,13 +1,9 @@
 ﻿cls
 
-### Einstellungen ###
-    $programmname    = "Windows Product Key Tool"
-    $programmversion = "v1.3.2"
-
 ### Startbildschirm ###
     function startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
-        Write-Host "║ $programmname $programmversion                                               ║"
+        Write-Host "║ Windows Product Key Tool                                                      ║"
         Write-Host "║                                                                               ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
     }
@@ -22,6 +18,7 @@
         Write-Host "   ║ [ 3 ] Product Key aktivieren                                                  ║"
         Write-Host "   ║ [ 4 ] Lizenzinformationen abrufen                                             ║"
         Write-Host "   ╠═══════════════════════════════════════════════════════════════════════════════╣"
+#        Write-Host "   ║ [ 0 ] Windows Server Tools starten                                            ║"
         Write-Host "   ║ [ X ] Programm beenden                                                        ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
@@ -37,11 +34,12 @@ function menueauswahl {
             $input = Read-Host "Bitte wählen Sie"
 
             switch ($input) {
+                '0' {servertool}
                 '1' {test_verlaengern}
                 '2' {productkey_eingeben}
                 '3' {productkey_aktivieren}
                 '4' {lizenzinfo_abrufen}
-                'x' {return}
+                'x' {exit}
             } pause }
         until ($input -eq 'x')
 }
@@ -156,6 +154,27 @@ function lizenzinfo_erweitert {
         Start-Sleep -Milliseconds 1500
         slmgr.vbs -dlv
         Write-Host ""
+}
+
+### Root-Verzeichnis ermitteln, zum öffnen des Programmcodes ###
+function Get-ScriptDirectory {
+    $Invocation = (Get-Variable MyInvocation -Scope 1).Value
+    Split-Path $Invocation.MyCommand.Path
+}
+ 
+$installpath = Get-ScriptDirectory
+
+### Zurück zum Tool für Windows-PCs ###
+function servertool {
+    cls
+    startbildschirm
+        Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+        Write-Host "   ║ Das Programm wird gewechselt...                                               ║"
+        Write-Host "   ║                                                                               ║"
+        Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
+        Start-Sleep -Milliseconds 1500
+        Start-Process powershell -verb runas -ArgumentList "-file $installpath\servercode.ps1"
+        exit
 }
 
 ### Start ###
