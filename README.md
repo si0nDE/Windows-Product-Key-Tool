@@ -1,4 +1,4 @@
-#Windows-Product-Key-Tool
+#Windows ProductKey Tool
 ========================
 
 Das *Windows ProductKey Tool* ist ein PowerShell-Script zur schnellen Installation, Aktivierung und Übersicht der Windows-Lizenzen.
