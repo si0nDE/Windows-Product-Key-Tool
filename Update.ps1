@@ -35,27 +35,29 @@ function Get-Update {
     Write-Host "        ║                                                                               ║"
     Write-Host "        ╚═══════════════════════════════════════════════════════════════════════════════╝"
     Invoke-WebRequest -Uri $source -OutFile "C:\Users\s.fieber\Documents\GitHub\Windows-Product-Key-Tool\TEST\update.zip"
-    Start-Sleep -Milliseconds 1000
+    Start-Sleep -Milliseconds 1500
     cls
     startbildschirm
     Write-Host "        ╔═══════════════════════════════════════════════════════════════════════════════╗"
     Write-Host "        ║ Update wird entpackt...                                                       ║"
     Write-Host "        ║                                                                               ║"
     Write-Host "        ╚═══════════════════════════════════════════════════════════════════════════════╝"
-    Unzip "$installpath\TEST\update.zip" "$installpath\TEST\"
-    Start-Sleep -Milliseconds 1000
+    Unzip "$installpath\update.zip" "$installpath"
+    Start-Sleep -Milliseconds 1500
     cls
     startbildschirm
     Write-Host "        ╔═══════════════════════════════════════════════════════════════════════════════╗"
     Write-Host "        ║ Aufräumen...                                                                  ║"
     Write-Host "        ║                                                                               ║"
     Write-Host "        ╚═══════════════════════════════════════════════════════════════════════════════╝"
-    Remove-Item "$installpath\TEST\update.zip"
-    Move-Item "$installpath\TEST\Windows-Product-Key-Tool-master\scripts\*" "$installpath\TEST\scripts" -Force
-    Remove-Item "$installpath\TEST\Windows-Product-Key-Tool-master\scripts\"
-    Move-Item "$installpath\TEST\Windows-Product-Key-Tool-master\*" "$installpath\TEST" -Force
-    Remove-Item "$installpath\TEST\Windows-Product-Key-Tool-master\"
-    Start-Sleep -Milliseconds 3000
+    Remove-Item "$installpath\update.zip"
+    Remove-Item "$installpath\Windows-Product-Key-Tool-master\Update.ps1"
+    Start-Sleep -Milliseconds 4000
+    Move-Item "$installpath\Windows-Product-Key-Tool-master\scripts\*" "$installpath\scripts\" -Force
+    Remove-Item "$installpath\Windows-Product-Key-Tool-master\scripts\"
+    Move-Item "$installpath\Windows-Product-Key-Tool-master\*" "$installpath" -Force
+    Remove-Item "$installpath\Windows-Product-Key-Tool-master\"
+    Start-Sleep -Milliseconds 1000
     cls
     startbildschirm
     Write-Host "        ╔═══════════════════════════════════════════════════════════════════════════════╗"
