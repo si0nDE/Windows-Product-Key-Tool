@@ -1,5 +1,0 @@
-Startet das Programm nicht, muss die Execution Policy auf "unrestricted" gesetzt werden.
-
-Dies geht als Administrator mit dem PowerShell-Befehl "Set-ExecutionPolicy Unrestricted", ohne Anführungszeichen.
-
-Für die Zukunft ist geplant, dass man dies direkt über das Script lösen kann und im späteren Verlauf gar nicht mehr benötigt.
