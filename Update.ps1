@@ -51,7 +51,9 @@ function Get-Update {
     Write-Host "        ║                                                                               ║"
     Write-Host "        ╚═══════════════════════════════════════════════════════════════════════════════╝"
     Remove-Item "$installpath\TEST\update.zip"
-    Move-Item "$installpath\TEST\Windows-Product-Key-Tool-master\*" "$installpath\TEST" -Exclude "Update.ps1" -Force
+    Move-Item "$installpath\TEST\Windows-Product-Key-Tool-master\scripts\*" "$installpath\TEST\scripts" -Force
+    Remove-Item "$installpath\TEST\Windows-Product-Key-Tool-master\scripts\"
+    Move-Item "$installpath\TEST\Windows-Product-Key-Tool-master\*" "$installpath\TEST" -Force
     Remove-Item "$installpath\TEST\Windows-Product-Key-Tool-master\"
     Start-Sleep -Milliseconds 3000
     cls
