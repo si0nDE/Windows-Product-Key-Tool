@@ -11,6 +11,6 @@ Das *Windows ProductKey Tool* ist ein PowerShell-Script zur schnellen Installati
 
 ## Geplante Funktionen ##
 
+- [x] Updatefunktion
 - [ ] Konfortablere Lösung, dass man die Execution Policy nicht mehr umstellen muss
 - [ ] Unterstützung für Windows Server
-- [ ] Updatefunktion
