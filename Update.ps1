@@ -34,7 +34,7 @@ function Get-Update {
     Write-Host "        ║ Update wird heruntergeladen...                                                ║"
     Write-Host "        ║                                                                               ║"
     Write-Host "        ╚═══════════════════════════════════════════════════════════════════════════════╝"
-    Invoke-WebRequest -Uri $source -OutFile "C:\Users\s.fieber\Documents\GitHub\Windows-Product-Key-Tool\TEST\update.zip"
+    Invoke-WebRequest -Uri $source -OutFile "$installpath\update.zip"
     Start-Sleep -Milliseconds 1500
     cls
     startbildschirm
@@ -52,7 +52,12 @@ function Get-Update {
     Write-Host "        ╚═══════════════════════════════════════════════════════════════════════════════╝"
     Remove-Item "$installpath\update.zip"
     Remove-Item "$installpath\Windows-Product-Key-Tool-master\Update.ps1"
-    Start-Sleep -Milliseconds 4000
+    Remove-Item "$installpath\scripts\*"
+    Start-Sleep -Milliseconds 1000
+    Remove-Item "$installpath\scripts\" -Force
+    # Zwangspause, da das Script zu schnell arbeitet. #
+    Start-Sleep -Milliseconds 3000
+    New-Item "$installpath\scripts\" -ItemType directory | Out-Null
     Move-Item "$installpath\Windows-Product-Key-Tool-master\scripts\*" "$installpath\scripts\" -Force
     Remove-Item "$installpath\Windows-Product-Key-Tool-master\scripts\"
     Move-Item "$installpath\Windows-Product-Key-Tool-master\*" "$installpath" -Force

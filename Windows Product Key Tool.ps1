@@ -3,7 +3,7 @@
 ### Startbildschirm ###
 function startbildschirm {
     Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
-    Write-Host "║ Windows Product Key Tool v1.4.1                                               ║"
+    Write-Host "║ Windows Product Key Tool v1.4.2                                               ║"
     Write-Host "║                                                                               ║"
     Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
