@@ -134,9 +134,13 @@ function lizenzinfo_einfach {
         Write-Host "      ║ Einfache Lizenzinformationen werden abgerufen...                              ║"
         Write-Host "      ║                                                                               ║"
         Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
-        Start-Sleep -Milliseconds 1500
         slmgr.vbs -dli
         Write-Host ""
+        Start-Sleep -Milliseconds 3000
+            cls
+            startbildschirm
+            menue
+            menueauswahl
 }
 
 ### erweiterte Lizenzinformationen abrufen ###
@@ -151,9 +155,13 @@ function lizenzinfo_erweitert {
         Write-Host "      ║ Erweiterte Lizenzinformationen werden abgerufen...                            ║"
         Write-Host "      ║                                                                               ║"
         Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
-        Start-Sleep -Milliseconds 1500
         slmgr.vbs -dlv
         Write-Host ""
+        Start-Sleep -Milliseconds 3000
+            cls
+            startbildschirm
+            menue
+            menueauswahl
 }
 
 ### Root-Verzeichnis ermitteln, zum öffnen des Programmcodes ###
