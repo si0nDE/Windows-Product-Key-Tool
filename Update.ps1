@@ -1,4 +1,7 @@
 ﻿cls
+### Fehlermeldungen unterdrücken ###
+### Mögliche Fehlermeldungen sind, dass Dateien oder Ordner nicht gelöscht werden können, weil diese nicht existieren. ###
+$ErrorActionPreference = "SilentlyContinue"
 
 ### Startbildschirm ###
 function startbildschirm {
