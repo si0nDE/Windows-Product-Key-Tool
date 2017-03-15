@@ -3,7 +3,7 @@
 ### Startbildschirm ###
     function startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
-        Write-Host "║ Windows Product Key Tool v2.0.1α                                              ║" 
+        Write-Host "║ Windows Product Key Tool v2.0.2α                                              ║"
         Write-Host "║                                                                               ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
     }
@@ -164,18 +164,28 @@ function lizenzinfo_erweitert {
 function installierte_edition {
     cls
     startbildschirm
+    $Edition = ''
         Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "   ║ Installierte Edition abfragen                                                 ║"
         Write-Host "   ╠═════════════════════════════════                                              ║"
         Write-Host "   ║                                                                               ║"
-        Write-Host "   ║ Diese Funktion ist derzeit noch in Entwicklung!                               ║"
+        Write-Host "   ║ Edition wird abgefragt...                                                     ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
-        Start-Sleep -Milliseconds 3000
-        cls
-        startbildschirm
-        menue
-        menueauswahl
+        $Edition = DISM /online /Get-CurrentEdition
+            cls
+            startbildschirm
+            Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+            Write-Host "   ║ Installierte Edition abfragen                                                 ║"
+            Write-Host "   ╠═════════════════════════════════                                              ║"
+            Write-Host "   ║                                                                               ║"
+            Write-Host "   ║ Wir haben folgende Rückmeldung erhalten:                                      ║"
+            Write-Host "   ║                                                                               ║"
+            Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
+            Write-Host ""
+            $Edition[8]
+            Write-Host ""
+            Write-Host ""
 }
 
 ### Windows Server-Editionen aktualisieren ###
