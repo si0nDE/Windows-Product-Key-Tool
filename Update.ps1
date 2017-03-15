@@ -1,6 +1,6 @@
 ﻿cls
 ### Fehlermeldungen unterdrücken ###
-### Mögliche Fehlermeldungen sind, dass Dateien oder Ordner nicht gelöscht werden können, weil diese nicht existieren. ###
+### Mögliche Fehlermeldungen: Dateien oder Ordner können nicht gelöscht werden, da diese nicht existieren. ###
 $ErrorActionPreference = "SilentlyContinue"
 
 ### Startbildschirm ###
