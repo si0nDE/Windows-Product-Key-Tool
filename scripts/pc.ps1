@@ -18,7 +18,7 @@
         Write-Host "   ║ [ 3 ] Product Key aktivieren                                                  ║"
         Write-Host "   ║ [ 4 ] Lizenzinformationen abrufen                                             ║"
         Write-Host "   ╠═══════════════════════════════════════════════════════════════════════════════╣"
-        Write-Host "   ║ [ 0 ] Windows Server Tools (Alpha-Version!) starten                           ║"
+        Write-Host "   ║ [ 0 ] WPK-Tool für Server starten                                             ║"
         Write-Host "   ║ [ X ] Programm beenden                                                        ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
@@ -49,6 +49,9 @@ function test_verlaengern {
         cls
         startbildschirm
             Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+            Write-Host "   ║ Testzeitraum verlängern                                                       ║"
+            Write-Host "   ╠═══════════════════════════                                                    ║"
+            Write-Host "   ║                                                                               ║"
             Write-Host "   ║ Testzeitraum wird um 60 Tage verlängert...                                    ║"
             Write-Host "   ║                                                                               ║"
             Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
@@ -63,6 +66,9 @@ function productkey_eingeben {
         cls
         startbildschirm
             Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+            Write-Host "   ║ Product Key eingeben                                                          ║"
+            Write-Host "   ╠════════════════════════                                                       ║"
+            Write-Host "   ║                                                                               ║"
             Write-Host "   ║ Bitte geben Sie den gewünschten Product Key im folgenden Format ein:          ║"
             Write-Host "   ║                                                                               ║"
             Write-Host "   ║     XXXXX-XXXXX-XXXXX-XXXXX-XXXXX                                             ║"
@@ -87,6 +93,9 @@ function productkey_aktivieren {
         cls
         startbildschirm
             Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+            Write-Host "   ║ Product Key aktivieren                                                        ║"
+            Write-Host "   ╠══════════════════════════                                                     ║"
+            Write-Host "   ║                                                                               ║"
             Write-Host "   ║ Product Key wird aktiviert...                                                 ║"
             Write-Host "   ║                                                                               ║"
             Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
@@ -102,6 +111,9 @@ function lizenzinfo_abrufen {
         cls
         startbildschirm
             Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+            Write-Host "   ║ Lizenzinformationen abrufen                                                   ║"
+            Write-Host "   ╠═══════════════════════════════                                                ║"
+            Write-Host "   ║                                                                               ║"
             Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
             Write-Host "   ║                                                                               ║"
             Write-Host "   ║ [ 1 ] einfache Informationen         ║ [ 2 ] erweiterte Informationen         ║"
@@ -127,6 +139,9 @@ function lizenzinfo_einfach {
     cls
     startbildschirm
         Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+        Write-Host "   ║ Lizenzinformationen abrufen                                                   ║"
+        Write-Host "   ╠═══════════════════════════════                                                ║"
+        Write-Host "   ║                                                                               ║"
         Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
@@ -148,6 +163,9 @@ function lizenzinfo_erweitert {
     cls
     startbildschirm
         Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+        Write-Host "   ║ Lizenzinformationen abrufen                                                   ║"
+        Write-Host "   ╠═══════════════════════════════                                                ║"
+        Write-Host "   ║                                                                               ║"
         Write-Host "   ║ Möchten Sie einfache oder erweiterte Lizenzinformationen abrufen?             ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
@@ -177,6 +195,9 @@ function servertool {
     cls
     startbildschirm
         Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+        Write-Host "   ║ WPK-Tool für Windows-PCs                                                      ║"
+        Write-Host "   ╠════════════════════════════                                                   ║"
+        Write-Host "   ║                                                                               ║"
         Write-Host "   ║ Das Programm wird gewechselt...                                               ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"

@@ -3,7 +3,7 @@
 ### Startbildschirm ###
     function startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
-        Write-Host "║ Windows Product Key Tool v2.0.2α                                              ║"
+        Write-Host "║ Windows Product Key Tool                                                      ║"
         Write-Host "║                                                                               ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
     }
@@ -20,7 +20,7 @@
         Write-Host "   ║ [ 4 ] Windows Server-Editionen aktualisieren                                  ║"
         Write-Host "   ║ [ 5 ] Lizenzinformationen abrufen                                             ║"
         Write-Host "   ╠═══════════════════════════════════════════════════════════════════════════════╣"
-        Write-Host "   ║ [ 0 ] Zurück zum Tool für Windows PCs                                         ║"
+        Write-Host "   ║ [ 0 ] WPK-Tool für PCs starten                                                ║"
         Write-Host "   ║ [ X ] Programm beenden                                                        ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
@@ -135,9 +135,13 @@ function lizenzinfo_einfach {
         Write-Host "      ║ Einfache Lizenzinformationen werden abgerufen...                              ║"
         Write-Host "      ║                                                                               ║"
         Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
-        Start-Sleep -Milliseconds 1500
         slmgr.vbs -dli
         Write-Host ""
+        Start-Sleep -Milliseconds 3000
+            cls
+            startbildschirm
+            menue
+            menueauswahl
 }
 
 ### erweiterte Lizenzinformationen abrufen ###
@@ -155,9 +159,13 @@ function lizenzinfo_erweitert {
         Write-Host "      ║ Erweiterte Lizenzinformationen werden abgerufen...                            ║"
         Write-Host "      ║                                                                               ║"
         Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
-        Start-Sleep -Milliseconds 1500
         slmgr.vbs -dlv
         Write-Host ""
+        Start-Sleep -Milliseconds 3000
+            cls
+            startbildschirm
+            menue
+            menueauswahl
 }
 
 ### Aktuell installierte Edition abfragen ###
@@ -192,18 +200,84 @@ function installierte_edition {
 function edition_aktualisieren {
     cls
     startbildschirm
+    $UpdateEdition = ''
+    $WunschEdition = ''
+    $ProductKey = ''
         Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "   ║ Windows Server-Editionen aktualisieren                                        ║"
         Write-Host "   ╠══════════════════════════════════════════                                     ║"
         Write-Host "   ║                                                                               ║"
-        Write-Host "   ║ Diese Funktion ist derzeit noch in Entwicklung!                               ║"
+        Write-Host "   ║ Mögliche Editionen zum aktualisieren werden abgefragt...                      ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
-        Start-Sleep -Milliseconds 3000
-        cls
-        startbildschirm
-        menue
-        menueauswahl
+        $UpdateEdition = DISM /online /Get-TargetEditions
+            cls
+            startbildschirm
+            Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+            Write-Host "   ║ Windows Server-Editionen aktualisieren                                        ║"
+            Write-Host "   ╠══════════════════════════════════════════                                     ║"
+            Write-Host "   ║                                                                               ║"
+            Write-Host "   ║ Wir haben folgende Rückmeldung erhalten:                                      ║"
+            Write-Host "   ║                                                                               ║"
+            Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
+            Write-Host ""
+            $UpdateEdition
+            Write-Host ""
+            Start-Sleep -Milliseconds 1500
+            Write-Host "      ╔═══════════════════════════════════════════════════════════════════════════════╗"
+            Write-Host "      ║ Windows Server-Editionen aktualisieren                                        ║"
+            Write-Host "      ╠══════════════════════════════════════════                                     ║"
+            Write-Host "      ║                                                                               ║"
+            Write-Host "      ║ Welche Edition möchten Sie aktualisieren?                                     ║"
+            Write-Host "      ║                                                                               ║"
+            Write-Host "      ║ Geben Sie die gewünschte Edition genau so ein, wie sie oben angegeben wird.   ║"
+            Write-Host "      ║                                                                               ║"
+            Write-Host "      ╚═══════════════════════════════════════════════════════════════════════════════╝"
+            Write-Host ""
+            $WunschEdition = Read-Host "      Gewünschte Edition"
+            Start-Sleep -Milliseconds 1500
+                cls
+                startbildschirm
+                Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+                Write-Host "   ║ Windows Server-Editionen aktualisieren                                        ║"
+                Write-Host "   ╠══════════════════════════════════════════                                     ║"
+                Write-Host "   ║                                                                               ║"
+                Write-Host "   ║ Bitte geben Sie den gewünschten Product Key im folgenden Format ein:          ║"
+                Write-Host "   ║                                                                               ║"
+                Write-Host "   ║     XXXXX-XXXXX-XXXXX-XXXXX-XXXXX                                             ║"
+                Write-Host "   ║                                                                               ║"
+                Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
+                Write-Host ""
+                $ProductKey = Read-Host "Geben Sie den Product Key für $WunschEdition ein"
+                Start-Sleep -Milliseconds 1500
+                    cls
+                    startbildschirm
+                    Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+                    Write-Host "   ║ Windows Server-Editionen aktualisieren                                        ║"
+                    Write-Host "   ╠══════════════════════════════════════════                                     ║"
+                    Write-Host "   ║                                                                               ║"
+                    Write-Host "   ║ Windows Edition wird aktualisiert...                                          ║"
+                    Write-Host "   ║                                                                               ║"
+                    Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
+                    Write-Host ""
+                    Write-Host "Windows-Edition: $WunschEdition"
+                    Start-Sleep -Milliseconds 1500
+                    Write-Host "Product Key:     $ProductKey"
+                    Start-Sleep -Milliseconds 3000
+                        cls
+                        startbildschirm
+                        Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
+                        Write-Host "   ║ Windows Server-Editionen aktualisieren                                        ║"
+                        Write-Host "   ╠══════════════════════════════════════════                                     ║"
+                        Write-Host "   ║                                                                               ║"
+                        Write-Host "   ║ Windows Edition wird aktualisiert...                                          ║"
+                        Write-Host "   ║                                                                               ║"
+                        Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
+                        Write-Host ""
+                        Start-Sleep -Milliseconds 1500
+                        DISM /online /Set-Edition:$WunschEdition /ProductKey:$ProductKey /AcceptEULA
+                        Write-Host ""
+                        Write-Host ""
 }
 
 ### Root-Verzeichnisp3 ermitteln, zum öffnen des Programmcodes ###
@@ -219,8 +293,8 @@ function pctool {
     cls
     startbildschirm
         Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
-        Write-Host "   ║ Tool für Windows-PCs                                                          ║"
-        Write-Host "   ╠════════════════════════                                                       ║"
+        Write-Host "   ║ WPK-Tool für Windows Server                                                   ║"
+        Write-Host "   ╠═══════════════════════════════                                                ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ║ Das Programm wird gewechselt...                                               ║"
         Write-Host "   ║                                                                               ║"
