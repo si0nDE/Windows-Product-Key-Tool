@@ -12,6 +12,7 @@
     function menue {
         Write-Host "   ╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "   ║ Hauptmenü                                                                     ║"
+        Write-Host "   ╠═════════════                                                                  ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ║ [ 1 ] Testzeitraum um 60 Tage verlängern                                      ║"
         Write-Host "   ║ [ 2 ] Product Key eingeben                                                    ║"
