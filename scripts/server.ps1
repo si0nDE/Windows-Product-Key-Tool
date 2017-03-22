@@ -15,7 +15,7 @@
         Write-Host "   ╠═════════════                                                                  ║"
         Write-Host "   ║                                                                               ║"
         Write-Host "   ║ [ 1 ] Product Key eingeben                                                    ║"
-        Write-Host "   ║ [ 2 ] Product Key aktivieren                                                  ║"
+        Write-Host "   ║ [ 2 ] Product Key online aktivieren                                           ║"
         Write-Host "   ║ [ 3 ] Aktuell installierte Edition abfragen                                   ║"
         Write-Host "   ║ [ 4 ] Windows Server-Editionen aktualisieren                                  ║"
         Write-Host "   ║ [ 5 ] Lizenzinformationen abrufen                                             ║"

@@ -16,7 +16,7 @@
         Write-Host "   ║                                                                               ║"
         Write-Host "   ║ [ 1 ] Testzeitraum um 60 Tage verlängern                                      ║"
         Write-Host "   ║ [ 2 ] Product Key eingeben                                                    ║"
-        Write-Host "   ║ [ 3 ] Product Key aktivieren                                                  ║"
+        Write-Host "   ║ [ 3 ] Product Key online aktivieren                                           ║"
         Write-Host "   ║ [ 4 ] Lizenzinformationen abrufen                                             ║"
         Write-Host "   ╠═══════════════════════════════════════════════════════════════════════════════╣"
         Write-Host "   ║ [ 0 ] WPK-Tool für Server starten                                             ║"
