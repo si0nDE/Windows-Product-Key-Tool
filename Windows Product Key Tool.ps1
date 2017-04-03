@@ -3,7 +3,7 @@
 ### Startbildschirm ###
 function startbildschirm {
     Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
-    Write-Host "║ Windows Product Key Tool v2.1.0                                               ║"
+    Write-Host "║ Windows Product Key Tool v2.2.0                                               ║"
     Write-Host "║                                                                               ║"
     Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
@@ -15,16 +15,37 @@ function Get-ScriptDirectory {
 }
  
 $installpath = Get-ScriptDirectory
+$scriptpath = "\scripts\pc.ps1"
+$fullscriptpath = $installpath + $scriptpath
 
-### Administrationsrechte anfordern ###
+### Administrationsrechte prüfen und ggf. anfordern ###
 function adminrechte {
-    Start-Sleep -Milliseconds 1000
+Start-Sleep -Milliseconds 1000
     Write-Host "        ╔═══════════════════════════════════════════════════════════════════════════════╗"
     Write-Host "        ║ Administrationsrechte werden angefordert...                                   ║"
     Write-Host "        ║                                                                               ║"
     Write-Host "        ╚═══════════════════════════════════════════════════════════════════════════════╝"
     Start-Sleep -Milliseconds 1500
-    Start-Process powershell -verb runas -ArgumentList "-file $installpath\scripts\pc.ps1"
+        $identity = [System.Security.Principal.WindowsIdentity]::GetCurrent()
+        $princ = New-Object System.Security.Principal.WindowsPrincipal($identity)
+        if(!$princ.IsInRole( `
+            [System.Security.Principal.WindowsBuiltInRole]::Administrator))
+            {
+                $powershell = [System.Diagnostics.Process]::GetCurrentProcess()
+                $psi = New-Object System.Diagnostics.ProcessStartInfo $powerShell.Path
+                $script = $fullscriptpath
+                $prm = $script
+                    foreach($a in $args) {
+                        $prm += ' ' + $a
+                    }
+                $psi.Arguments = $prm
+                $psi.Verb = "runas"
+                [System.Diagnostics.Process]::Start($psi) | Out-Null
+                return;
+            }
+    ### Falls Adminrechte nicht erfordert werden können, ###
+    ### soll das Script trotzdem ausgeführt werden.      ###
+    & $fullscriptpath 
 }
 
 ### Start ###

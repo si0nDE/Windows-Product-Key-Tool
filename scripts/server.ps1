@@ -42,7 +42,7 @@ function menueauswahl {
                 '3' {installierte_edition}
                 '4' {edition_aktualisieren}
                 '5' {lizenzinfo_abrufen}
-                'x' {exit}
+                'x' {[Environment]::Exit(1)}
             } pause }
         until ($input -eq 'x')
 }
@@ -330,6 +330,8 @@ function Get-ScriptDirectory {
 }
  
 $installpath = Get-ScriptDirectory
+$scriptpath = "\pc.ps1"
+$fullscriptpath = $installpath + $scriptpath
 
 ### Zurück zum Tool für Windows-PCs ###
 function pctool {
@@ -343,8 +345,26 @@ function pctool {
         Write-Host "   ║                                                                               ║"
         Write-Host "   ╚═══════════════════════════════════════════════════════════════════════════════╝"
         Start-Sleep -Milliseconds 1500
-        Start-Process powershell -verb runas -ArgumentList "-file $installpath\pc.ps1"
-        exit
+        $identity = [System.Security.Principal.WindowsIdentity]::GetCurrent()
+        $princ = New-Object System.Security.Principal.WindowsPrincipal($identity)
+        if(!$princ.IsInRole( `
+            [System.Security.Principal.WindowsBuiltInRole]::Administrator))
+            {
+                $powershell = [System.Diagnostics.Process]::GetCurrentProcess()
+                $psi = New-Object System.Diagnostics.ProcessStartInfo $powerShell.Path
+                $script = $fullscriptpath
+                $prm = $script
+                    foreach($a in $args) {
+                        $prm += ' ' + $a
+                    }
+                $psi.Arguments = $prm
+                $psi.Verb = "runas"
+                [System.Diagnostics.Process]::Start($psi) | Out-Null
+                return;
+            }
+    ### Falls Adminrechte nicht erfordert werden können, ###
+    ### soll das Script trotzdem ausgeführt werden.      ###
+    & $fullscriptpath 
 }
 
 ### Start ###
