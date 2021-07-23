@@ -3,7 +3,7 @@
 ### Startbildschirm ###
 function startbildschirm {
     Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
-    Write-Host "║ Windows Product Key Tool v2.2.0                                               ║"
+    Write-Host "║ Windows Product Key Tool v2.2.1                                               ║"
     Write-Host "║                                                                               ║"
     Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
@@ -15,7 +15,7 @@ function Get-ScriptDirectory {
 }
  
 $installpath = Get-ScriptDirectory
-$scriptpath = "\scripts\pc.ps1"
+$scriptpath = "\Windows-Product-Key-Tool.ps1"
 $fullscriptpath = $installpath + $scriptpath
 
 ### Administrationsrechte prüfen und ggf. anfordern ###
